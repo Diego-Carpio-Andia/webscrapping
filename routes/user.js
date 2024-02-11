@@ -11,6 +11,7 @@ router.post("/saveWorldBank", check.auth , userController.saveWorldBank);
 router.post("/saveOFAC", check.auth , userController.saveOFAC);
 router.post("/saveOffshore", check.auth , userController.saveOffshore);
 router.post("/listado", check.auth , userController.listado);
+router.get("/profile/:id", check.auth , userController.profile);
 
 //exportar router
 module.exports = router;

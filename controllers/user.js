@@ -131,6 +131,23 @@ const login = (req,res)=>{
         });
     });   
 }
+const profile = (req, res) =>{
+    const id = req.params.id;    
+    User.findById(id)
+    .select({password:0, role: 0})
+    .exec(async (error, user_profile) =>{
+        if(error || !user_profile){
+            return res.status(404).json({
+                status: "error",
+                message: "el usuario no existe"
+            });
+        }        
+        return res.status(200).json({
+            status: "success",
+            user: user_profile,
+        });
+    })
+}
 const saveWorldBank = async (req, res) => {
     //recoger datos del body
     let params = req.body;
@@ -471,5 +488,6 @@ module.exports = {
     saveWorldBank,
     saveOffshore,
     saveOFAC,
-    listado
+    listado,
+    profile
 }
