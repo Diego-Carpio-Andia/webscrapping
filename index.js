@@ -17,7 +17,12 @@ app.use(express.urlencoded({extended: true}));
 //cargar conf rutas
 const userRoutes = require("./routes/user");
 app.use("/api/user",userRoutes);
+
+//condifgurar puerto
+app.set('port', process.env.PORT || 3900);
 //poner servidor a escuchar peticiones http - para escuchar peticiones http de las rutas
-app.listen(puerto, ()=>{
-    console.log("servidor de node corriendo en: ", puerto);
-})
+async function main(){
+    app.listen(app.get('port'));
+    console.log("puerto corriendo en: ", app.get('port'));
+}
+main();
