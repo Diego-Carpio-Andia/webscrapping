@@ -209,7 +209,8 @@ const saveWorldBank = async (req, res) => {
                         return res.status(200).send({
                             status: "success",
                             message: "Los documentos se han guardado correctamente",
-                            datos: data
+                            datos: data,
+                            pulsaciones: tableRowCount
                         });
                     });  
                 } catch (error) {
@@ -311,7 +312,8 @@ const saveOffshore = async (req, res) => {
                         return res.status(200).send({
                             status: "success",
                             message: "Los documentos se han guardado correctamente",
-                            datos: data
+                            datos: data,
+                            pulsaciones: tableRowCount
                         });
                     });                   
                 } catch (error) {
@@ -414,7 +416,8 @@ const saveOFAC = async (req, res) => {
                             return res.status(200).send({
                                 status: "success",
                                 message: "Los documentos se han guardado correctamente",
-                                datos: data
+                                datos: data,
+                                pulsaciones: tableRowCount
                             });
                         });                   
                     } catch (error) {
